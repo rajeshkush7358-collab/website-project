@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Practice Page</title>
+    <style>
+        /* CSS for Styling */
+        body { background-color: #fafafa; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .login-box { background: white; border: 1px solid #dbdbdb; padding: 40px; width: 350px; text-align: center; }
+        input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #dbdbdb; background: #fafafa; border-radius: 3px; box-sizing: border-box; }
+        .login-btn { width: 100%; padding: 8px; background-color: #0095f6; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        #display-area { margin-top: 20px; padding: 15px; background: #e7f3ff; border: 1px dashed #0095f6; width: 350px; display: none; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>AppLogin</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Phone, username, or email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Log In</button>
+        </form>
+    </div>
+
+    <div id="display-area">
+        <strong>Captured Data:</strong><br>
+        <span id="showUser"></span><br>
+        <span id="showPass"></span>
+    </div>
+
+    <script>
+        // JavaScript to handle the data
+        const form = document.getElementById('loginForm');
+        const display = document.getElementById('display-area');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stops the page from refreshing
+            
+            const userValue = document.getElementById('username').value;
+            const passValue = document.getElementById('password').value;
+
+            // Displaying the results on the screen
+            document.getElementById('showUser').innerText = "User: " + userValue;
+            document.getElementById('showPass').innerText = "Pass: " + passValue;
+            display.style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
